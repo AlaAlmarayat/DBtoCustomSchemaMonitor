@@ -24,7 +24,7 @@ dist
 *.war
 *.ear
 
-
+*config.yml
 
 target/
 build/
