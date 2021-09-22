@@ -6,73 +6,75 @@ metricPrefix: "Server|Component:<ComponentID>|Custom Metrics|SQL|"
 
 
 dbServers:
-    - displayName: "DCCIH-DB-test"
+    - displayName: "test"
       connectionUrl: "jdbc:oracle:thin:@localhost:1521/orcl"
       driver: "oracle.jdbc.driver.OracleDriver"
 
       connectionProperties:
-          user: "SYSTEM"
-          password: "admin"
+          user: "test"
+          password: "test"
      #     encryptedPassword: ""  #Needs to be used in conjunction with `encryptionKey`. Please read the extension documentation to generate encrypted password. https://community.appdynamics.com/t5/Knowledge-Base/How-do-I-use-Password-Encryption-with-Extensions/ta-p/29397
       analyticsEventPublishApi:
-          url: "https://fra-ana-api.saas.appdynamics.com/events/publish/dccih_commissioning_transactions"
-          controllerGlobalAccountName: "centricapreprod_65f907d1-1478-4a78-b8e1-0b91a3ae2707"
-          eventsAPIKey: "2522bdd9-e5ec-43b2-88c8-00644f3a1d4c"
+          url: "https://<AppDynamics-Analytics-event-api-host>/events/publish/<Schema-name>"
+          controllerGlobalAccountName: "customer1_123456788900000000"
+          eventsAPIKey: ""
 
       queries:
         - displayName: "Query test 1"
-          queryStmt: "select col1,col2,col3,col4,col1,col2,col3,col4 from test WHERE col3=22"
+          queryStmt: "select col1,col2,col3,col4,col5,col6,col7,col8 from test WHERE col3=22"
           columns:
             - name: "col1"
-              analyticsColName: "BS_TRANSACTION_ID"
+              analyticsColName: "analyticsCol1"
 
             - name: "col2"
-              analyticsColName: "BS_ID"
+              analyticsColName: "analyticsCol2"
 
             - name: "col3"
-              analyticsColName: "TIME_IN_SECS"
+              analyticsColName: "analyticsCol3"
 
             - name: "col4"
-              analyticsColName: "TRANS_STATUS_ID"
+              analyticsColName: "analyticsCol4"
 
-            - name: "col1"
-              analyticsColName: "START_DATETIME"
+            - name: "col5"
+              analyticsColName: "analyticsCol5"
 
-            - name: "col2"
-              analyticsColName: "STOP_DATETIME"
+            - name: "col6"
+              analyticsColName: "analyticsCol6"
 
-            - name: "col3"
-              analyticsColName: "ERROR_CODE"
+            - name: "col7"
+              analyticsColName: "analyticsCol7"
 
-            - name: "col4"
-              analyticsColName: "TARGET_ID"
+            - name: "col8"
+              analyticsColName: "analyticsCol8"
 
+      queries:
         - displayName: "Query test 2"
-          queryStmt: "SELECT column1,column2,column3,column4,column5,column6,column7,column8 FROM test2 where column4=12"
+          queryStmt: "select col1,col2,col3,col4,col5,col6,col7,col8 from test WHERE col3=22"
           columns:
-            - name: "column1"
-              analyticsColName: "BS_TRANSACTION_ID"
+            - name: "col1"
+              analyticsColName: "analyticsCol1"
 
-            - name: "column2"
-              analyticsColName: "BS_ID"
+            - name: "col2"
+              analyticsColName: "analyticsCol2"
 
-            - name: "column3"
-              analyticsColName: "TIME_IN_SECS"
+            - name: "col3"
+              analyticsColName: "analyticsCol3"
 
-            - name: "column4"
-              analyticsColName: "TRANS_STATUS_ID"
+            - name: "col4"
+              analyticsColName: "analyticsCol4"
 
-            - name: "column5"
-              analyticsColName: "START_DATETIME"
+            - name: "col5"
+              analyticsColName: "analyticsCol5"
 
-            - name: "column6"
-              analyticsColName: "STOP_DATETIME"
+            - name: "col6"
+              analyticsColName: "analyticsCol6"
 
-            - name: "column7"
-              analyticsColName: "ERROR_CODE"
+            - name: "col7"
+              analyticsColName: "analyticsCol7"
 
-            - name: "column8"
-              analyticsColName: "TARGET_ID"
+            - name: "col8"
+              analyticsColName: "analyticsCol8"
+
 
         # - displayName: "TRANSACTION DATABASE"
         #   queryStmt: "SELECT TARGET_BOX, REACH_DURATION, ROUTER_DURATION FROM ASG_TRANSACTIONS WHERE TARGET_BOX IN ('target1','target2','target3','target4','target5')"
