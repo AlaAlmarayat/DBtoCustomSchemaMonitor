@@ -2,12 +2,12 @@
 #This will create this metric in all the tiers, under this path.
 #metricPrefix: "Custom Metrics|SQL|"
 #This will create it in specific Tier. Replace <ComponentID> with TierID
-metricPrefix: "Server|Component:<ComponentID>|Custom Metrics|SQL|"
+metricPrefix: "Server|Component:<ComponentID>|Custom Metrics|<db-type-name-----etc>|"
 
 
 dbServers:
     - displayName: "DCCIH-DB-test"
-      connectionUrl: "jdbc:oracle:thin:@localhost:1621/orcl"
+      connectionUrl: "jdbc:oracle:thin:@<db-host>:<port>/orcl"
       driver: "oracle.jdbc.driver.OracleDriver"
 
       connectionProperties:
@@ -15,9 +15,9 @@ dbServers:
           password: "admin"
      #     encryptedPassword: ""  #Needs to be used in conjunction with `encryptionKey`. Please read the extension documentation to generate encrypted password. https://community.appdynamics.com/t5/Knowledge-Base/How-do-I-use-Password-Encryption-with-Extensions/ta-p/29397
       analyticsEventPublishApi:
-          url: "https://fra-ana-api.saas.appdynamics.com/events/publish/dccih_commissioning_transactions"
-          controllerGlobalAccountName: "centricapreprod_65f907d1-1478-4a78-b8e1-0b91a3ae2707"
-          eventsAPIKey: "2522bdd9-e5ec-43b2-88c8-00644f3a1d4c"
+          url: "https://fra-ana-api.saas.appdynamics.com/events/publish/<schema-name>"
+          controllerGlobalAccountName: "<controller-Global-Account-Name>"
+          eventsAPIKey: "<events-API-Key>"
 
       queries:
         - displayName: "Query test 1"
