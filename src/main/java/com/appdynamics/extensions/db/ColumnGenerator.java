@@ -15,10 +15,7 @@ import com.google.common.collect.Maps;
 import java.util.List;
 import java.util.Map;
 
-/**
- * 
- * Created by bhuvnesh.kumar on 10/5/17.
- */
+ 
 public class ColumnGenerator {
 
     public List<Column> getColumns(Map query) {

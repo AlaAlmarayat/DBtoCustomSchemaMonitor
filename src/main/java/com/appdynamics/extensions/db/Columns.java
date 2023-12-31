@@ -11,10 +11,7 @@ import com.google.common.collect.Lists;
 
 import java.util.List;
 
-
-/**
- * Created by bhuvnesh.kumar on 9/21/17.
- */
+ 
 public class Columns {
     List<Column> columns = Lists.newArrayList();
 

@@ -20,7 +20,7 @@ public class Constant {
 
     static {
         METRIC_PREFIX = "Custom Metrics|SQL";
-        MonitorName = "SQL Monitor";
+        MonitorName = "DB to Custom Schema Monitor";
         USER_NAME = "username";
         ENCRYPTED_PASSWORD = "encryptedPassword";
         ENCRYPTION_KEY = "encryptionKey";

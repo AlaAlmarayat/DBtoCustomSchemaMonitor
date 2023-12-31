@@ -18,9 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 
-/**
- * Created by bhuvnesh.kumar on 9/29/17.
- */
+ 
 public class MetricCollector {
     private static final String METRIC_SEPARATOR = "|";
     private String metricPrefix;

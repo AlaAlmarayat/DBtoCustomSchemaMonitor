@@ -19,6 +19,9 @@ import org.unix4j.variable.Arg;
 
 import static com.appdynamics.extensions.db.Constant.METRIC_PREFIX;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,9 +42,9 @@ public class DBtoCustomSchema extends ABaseMonitor {
 
     @Override
     public String getMonitorName() {
-        return "SQL Monitor";
+        return "DB to Custom Schema Monitor";
     }
-    public static void main(String[] args)   {
+    public static void main(String[] args) throws IOException   {
 
         
 
@@ -51,8 +54,14 @@ public class DBtoCustomSchema extends ABaseMonitor {
         final DBtoCustomSchema monitor = new DBtoCustomSchema();
 
         final Map<String, String> taskArgs = new HashMap<String, String>();
-        taskArgs.put("config-file", "C:\\Users\\Alaa Almrayat\\Documents\\VS\\DBtoCustomSchemaMonitor\\src\\main\\resources\\conf\\config.yml");
-        taskArgs.put("metric-file", "C:\\Users\\Alaa Almrayat\\Documents\\VS\\DBtoCustomSchemaMonitor\\src\\main\\resources\\conf\\metrics.xml");
+        String config = Paths.get("config.yml")
+        .toAbsolutePath()
+        .toString(); 
+        String metrics = Paths.get("metrics.xml")
+        .toAbsolutePath()
+        .toString(); 
+        taskArgs.put("config-file", config);
+        taskArgs.put("metric-file", metrics);
 
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
         scheduler.scheduleAtFixedRate(new Runnable() {
@@ -66,7 +75,7 @@ public class DBtoCustomSchema extends ABaseMonitor {
         }, 2, 60, TimeUnit.SECONDS);
     }
 
-    
+  
     @Override
     protected void doRun(TasksExecutionServiceProvider serviceProvider) {
 
